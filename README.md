@@ -10,17 +10,23 @@ Clone the code to your local device, run 'npm i' in the terminal and 'npm start'
 
 ## Usage:
 
-lorem
+To run this app, 'npm start' in terminal to use on local server 3001 once you have installed dependencies.
 
 ## Built With:
 
-lorem
+- Javascript
+- Node JS
+- MongoDB
+- Express
 
 ## Demonstration:
 
-lorem
+Follow the link to view the usage of this social network API:
 
 ## License:
+
+![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
+https://choosealicense.com/licenses/mit/
 
 ## Tests:
 
