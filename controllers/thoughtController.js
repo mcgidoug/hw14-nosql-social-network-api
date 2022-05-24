@@ -38,6 +38,68 @@ const thoughtController = {
       })
       .catch((err) => res.json(err));
   },
-  
+  // update thought
+  updateThought({ params, body }, res) {
+    Thought.findByIdAndUpdate({ _id: params.thoughtId }, body, {
+      runValidators: true,
+      new: true,
+    })
+      .then((thoughtData) => {
+        if (!thoughtData) {
+          res.status(404).json({ message: "No user found with this ID!" });
+          return;
+        }
+        res.json(thoughtData);
+      })
+      .catch((err) => res.json(err));
+  },
+  // delete thought
+  deleteThought({ params }, res) {
+    Thought.findByIdAndDelete(
+      { _id: params.thoughtId },
+      { runValidators: true, new: true }
+    )
+      .then((thoughtData) => {
+        if (!thoughtData) {
+          res.status(404).json({ message: "No user found with this ID!" });
+          return;
+        }
+        res.json(thoughtData);
+      })
+      .catch((err) => res.json(err));
+  },
+  // add reaction
+  addReaction({ params, body }, res) {
+    Thought.findOneAndUpdate(
+      { _id: params.thoughtId },
+      { $push: { reactions: body } },
+      { new: true, runValidators: true }
+    )
+      .then((thoughtData) => {
+        if (!thoughtData) {
+          res.status(404).json({ message: "No reaction found with this id!" });
+          return;
+        }
+        res.json(thoughtData);
+      })
+      .catch((err) => res.json(err));
+  },
+  // delete reaction
+  deleteReaction({ params }, res) {
+    Thought.findOneAndUpdate(
+      { _id: params.thoughtId },
+      { $pull: { reactions: { reactionId: params.reactionId } } },
+      { new: true, runValidators: true }
+    )
+      .then((thoughtData) => {
+        if (!thoughtData) {
+          res.status(404).json({ message: "No reaction found with this id!" });
+          return;
+        }
+        res.json(thoughtData);
+      })
+      .catch((err) => res.json(err));
+  },
+};
 
 module.exports = thoughtController;
