@@ -2,11 +2,11 @@
 
 ## Description:
 
-lorem
+A social network API utilizing MongoDB and Express.js. Users can create a username with email and add thoughts and reactions to their friends' posts.
 
 ## Installation:
 
-lorem
+Clone the code to your local device, run 'npm i' in the terminal and 'npm start' to start the server.
 
 ## Usage:
 
@@ -19,3 +19,9 @@ lorem
 ## Demonstration:
 
 lorem
+
+## License:
+
+## Tests:
+
+Tests were not ran for this project.
